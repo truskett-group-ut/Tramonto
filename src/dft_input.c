@@ -646,7 +646,7 @@ void read_input_file(FILE *fpinput, FILE *fpecho)
   }
 
                        /* Yukawa parameters - the Debye length */
-  if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || 
+  if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || Type_pairPot == PAIR_EXP6_CS ||
       Type_pairPot==PAIR_LJandYUKAWA_CS || Type_pairPot==PAIR_r12andYUKAWA_CS ||
       Type_pairPot==PAIR_r18andYUKAWA_CS || Type_pairPot==PAIR_rNandYUKAWA_CS){
       read_junk(fpinput,fpecho);
@@ -756,7 +756,7 @@ void read_input_file(FILE *fpinput, FILE *fpecho)
   }
 
                        /* Yukawa parameters - the Debye length */
-  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || 
+  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || Type_uwwPot == PAIR_EXP6_CS ||
       Type_uwwPot==PAIR_LJandYUKAWA_CS || Type_uwwPot==PAIR_r12andYUKAWA_CS
       || Type_uwwPot==PAIR_r18andYUKAWA_CS){
 

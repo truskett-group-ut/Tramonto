@@ -143,6 +143,7 @@ set(common_h
 	dft_pairPot_r18YukawaSum.h
 	dft_pairPot_nvarYukawaSum.h
 	dft_pairPot_EXP.h
+    dft_pairPot_exp6.h
 		dft_pairPot_SW.h
 	dft_switch_pairPot.h
 	dft_switch_vext1D.h
@@ -270,6 +271,7 @@ set(common_c
 	dft_pairPot_r18YukawaSum.c
 	dft_pairPot_nvarYukawaSum.c
 	dft_pairPot_EXP.c
+	dft_pairPot_exp6.c
 		dft_pairPot_SW.c
 	dft_switch_pairPot.c
 	dft_switch_vext1D.c

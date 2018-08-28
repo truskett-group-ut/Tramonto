@@ -73,6 +73,9 @@ double pairPot_switch(double r,double param1, double param2, double param3,doubl
       case PAIR_EXP_CS:
         u = uEXP_CS(r,param1,param2,param3,param4);
         break;
+      case PAIR_EXP6_CS:
+        u = uexp6_CS(r,param1,param2,param3,param4);
+        break;
       case PAIR_SW:
         u = uSW(r,param1,param2,param3);
         break;
@@ -117,6 +120,9 @@ void pairPotparams_switch(int typePairPot,int context, int i, int j,
         break;
       case PAIR_EXP_CS:
         uEXP_CS_setparams(context,i,j,param1,param2,param3,param4);
+        break;
+      case PAIR_EXP6_CS:
+        uexp6_CS_setparams(context,i,j,param1,param2,param3,param4);
         break;
       case PAIR_SW:
         uSW_setparams(context,i,j,param1,param2,param3);
@@ -164,6 +170,9 @@ double pairPot_deriv_switch(double r, double x, double param1, double param2, do
       case PAIR_EXP_CS:
         uderiv = uEXP_DERIV1D(r,x,param1,param2,param3,param4);
         break;
+      case PAIR_EXP6_CS:
+        uderiv = uexp6_DERIV1D(r,x,param1,param2,param3,param4);
+        break;
       case PAIR_SW:
         uderiv = uSW_DERIV1D(r,x,param1,param2,param3);
         break;
@@ -205,6 +214,9 @@ void pairPot_InnerCore_switch(int icomp, int jcomp,int typePairPot,
          break;
       case PAIR_EXP_CS:
          uEXP_InnerCore(icomp,jcomp,rCore_left,rCore_right,epsCore);
+         break;
+      case PAIR_EXP6_CS:
+         uexp6_InnerCore(icomp,jcomp,rCore_left,rCore_right,epsCore);
          break;
       case PAIR_SW:
          uSW_InnerCore(icomp,jcomp,rCore_left,rCore_right,epsCore);
@@ -253,6 +265,9 @@ double pairPot_ATT_CS_switch(double r, int icomp, int jcomp,int typePairPot)
       case PAIR_EXP_CS:
         u = uEXP_ATT_CS(r,icomp,jcomp);  
         break;
+      case PAIR_EXP6_CS:
+        u = uexp6_ATT_CS(r,icomp,jcomp);
+        break;
       case PAIR_SW:
         u = uSW_ATT_CS(r,icomp,jcomp);  
         break;
@@ -297,6 +312,9 @@ double pairPot_ATT_noCS_switch(double r, int icomp, int jcomp,int typePairPot)
       case PAIR_EXP_CS:
         u = uEXP_ATT_noCS(r,icomp,jcomp);
         break;
+      case PAIR_EXP6_CS:
+        u = uexp6_ATT_noCS(r,icomp,jcomp);
+        break;
       case PAIR_SW:
         u = uSW_ATT_noCS(r,icomp,jcomp);
         break;	  
@@ -340,6 +358,9 @@ double pairPot_integral_switch(double r, int icomp, int jcomp,int typePairPot)
          break;
       case PAIR_EXP_CS:
          u = uEXP_Integral(r,icomp,jcomp);
+         break;
+      case PAIR_EXP6_CS:
+         u = uexp6_Integral(r,icomp,jcomp);
          break;
       case PAIR_SW:
          u = uSW_Integral(r,icomp,jcomp);

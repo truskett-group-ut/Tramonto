@@ -62,7 +62,7 @@ void pot_parameters(char *file_echoinput)
            Eps_ff[i][j] = sqrt(Eps_ff[i][i]*Eps_ff[j][j]); 
            Cut_ff[i][j] = 0.5*(Cut_ff[i][i]+Cut_ff[j][j]);
            Bond_ff[i][j] = 0.5*(Bond_ff[i][i]+Bond_ff[j][j]);
-           if (Type_pairPot==PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || 
+           if (Type_pairPot==PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || Type_pairPot == PAIR_EXP6_CS ||
                Type_pairPot==PAIR_LJandYUKAWA_CS || Type_pairPot==PAIR_r12andYUKAWA_CS ||   
                Type_pairPot==PAIR_r18andYUKAWA_CS) {
                      EpsYukawa_ff[i][j] = sqrt(EpsYukawa_ff[i][i]*EpsYukawa_ff[j][j]); 
@@ -74,7 +74,7 @@ void pot_parameters(char *file_echoinput)
            fprintf(fp2,"\ti:%d  j:%d",i,j);
            fprintf(fp2,"   Sigma_ff: %9.6f  Cut_ff: %9.6f  Eps_ff: %9.6f  Bond_ff: %9.6f ",
                    Sigma_ff[i][j],Cut_ff[i][j],Eps_ff[i][j],Bond_ff[i][j]);
-           if (Type_pairPot==PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || 
+           if (Type_pairPot==PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || Type_pairPot == PAIR_EXP6_CS ||
                Type_pairPot==PAIR_LJandYUKAWA_CS || Type_pairPot==PAIR_r12andYUKAWA_CS ||
                 Type_pairPot==PAIR_r18andYUKAWA_CS) {
                fprintf(fp2,"   YukawaK_ff: %9.6f  EpsYukawa_ff: %9.6f ",YukawaK_ff[i][j],EpsYukawa_ff[i][j]);
@@ -88,11 +88,11 @@ void pot_parameters(char *file_echoinput)
    for (jw=0; jw<Nwall_type; jw++){
         Sigma_ww[iw][jw] = 0.5*(Sigma_ww[iw][iw]+Sigma_ww[jw][jw]);
         Eps_ww[iw][jw] = sqrt(Eps_ww[iw][iw]*Eps_ww[jw][jw]);
-        if ( Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS || 
+        if ( Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS || Vext_PotentialID[iw] == PAIR_EXP6_CS ||
             Vext_PotentialID[iw]==PAIR_LJandYUKAWA_CS || Vext_PotentialID[iw]==PAIR_r12andYUKAWA_CS || Vext_PotentialID[iw]==PAIR_r18andYUKAWA_CS ||
-            Vext_PotentialID[jw]==PAIR_YUKAWA_CS || Vext_PotentialID[jw]==PAIR_EXP_CS || 
+            Vext_PotentialID[jw]==PAIR_YUKAWA_CS || Vext_PotentialID[jw]==PAIR_EXP_CS || Vext_PotentialID[jw] == PAIR_EXP6_CS ||
             Vext_PotentialID[jw]==PAIR_LJandYUKAWA_CS || Vext_PotentialID[jw]==PAIR_r12andYUKAWA_CS || Vext_PotentialID[jw]==PAIR_r18andYUKAWA_CS ||
-            Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot==PAIR_EXP_CS || 
+            Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot==PAIR_EXP_CS || Type_uwwPot == PAIR_EXP6_CS ||
             Type_uwwPot==PAIR_LJandYUKAWA_CS || Type_uwwPot==PAIR_r12andYUKAWA_CS || Type_uwwPot==PAIR_r18andYUKAWA_CS) {
                  EpsYukawa_ww[iw][jw] = sqrt(EpsYukawa_ww[iw][iw]*EpsYukawa_ww[jw][jw]);
                  YukawaK_ww[iw][jw]=0.5*(YukawaK_ww[iw][iw]+YukawaK_ww[jw][jw]);
@@ -106,6 +106,7 @@ void pot_parameters(char *file_echoinput)
                            Sigma_ww[iw][jw],Cut_ww[iw][jw],Eps_ww[iw][jw]);
           if (Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[jw]==PAIR_YUKAWA_CS || Type_uwwPot==PAIR_YUKAWA_CS || 
               Vext_PotentialID[iw]==PAIR_EXP_CS || Vext_PotentialID[jw]==PAIR_EXP_CS ||Type_uwwPot==PAIR_EXP_CS ||
+              Vext_PotentialID[iw]==PAIR_EXP6_CS || Vext_PotentialID[jw]==PAIR_EXP6_CS ||Type_uwwPot==PAIR_EXP6_CS ||
               Vext_PotentialID[iw]==PAIR_LJandYUKAWA_CS || Vext_PotentialID[jw]==PAIR_LJandYUKAWA_CS || Type_uwwPot==PAIR_LJandYUKAWA_CS ||
               Vext_PotentialID[iw]==PAIR_r12andYUKAWA_CS || Vext_PotentialID[jw]==PAIR_r12andYUKAWA_CS || Type_uwwPot==PAIR_r12andYUKAWA_CS ||
               Vext_PotentialID[iw]==PAIR_r18andYUKAWA_CS || Vext_PotentialID[jw]==PAIR_r18andYUKAWA_CS ||Type_uwwPot==PAIR_r18andYUKAWA_CS ){
@@ -122,7 +123,7 @@ void pot_parameters(char *file_echoinput)
         Sigma_wf[i][iw] = 0.5*(Sigma_ff[i][i] + Sigma_ww[iw][iw]);
         Eps_wf[i][iw] = sqrt(Eps_ff[i][i]*Eps_ww[iw][iw]);
         Cut_wf[i][iw] = 0.5*(Cut_ff[i][i]+Cut_ww[iw][iw]);
-        if (Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS || 
+        if (Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS ||  Vext_PotentialID[iw] == PAIR_EXP6_CS ||
             Vext_PotentialID[iw]==PAIR_LJandYUKAWA_CS || Vext_PotentialID[iw]==PAIR_r12andYUKAWA_CS ||
             Vext_PotentialID[iw]==PAIR_r18andYUKAWA_CS){ 
                EpsYukawa_wf[i][iw] = sqrt(EpsYukawa_ff[i][i]*EpsYukawa_ww[iw][iw]);
@@ -133,7 +134,7 @@ void pot_parameters(char *file_echoinput)
           fprintf(fp2,"\ti:%d  iwall_type:%d",i,iw);
           fprintf(fp2,"   Sigma_wf: %9.6f  Cut_wf: %9.6f  Eps_wf: %9.6f",
            Sigma_wf[i][iw],Cut_wf[i][iw],Eps_wf[i][iw]);
-          if (Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS || 
+          if (Vext_PotentialID[iw]==PAIR_YUKAWA_CS || Vext_PotentialID[iw]==PAIR_EXP_CS || Vext_PotentialID[iw] == PAIR_EXP6_CS ||
               Vext_PotentialID[iw]==PAIR_LJandYUKAWA_CS || Vext_PotentialID[iw]==PAIR_r12andYUKAWA_CS ||
               Vext_PotentialID[iw]==PAIR_r18andYUKAWA_CS) {
              fprintf(fp2,"   YukawaK_wf: %9.6f EpsYukawa_wf: %9.6f \n",YukawaK_wf[i][iw],EpsYukawa_wf[i][iw]);

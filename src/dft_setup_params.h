@@ -107,6 +107,7 @@ extern double YukawaK_ww[NWALL_MAX_TYPE][NWALL_MAX_TYPE];
 #define PAIR_r12andYUKAWA_CS  7
 #define PAIR_LJandYUKAWA_CS   6
 #define PAIR_EXP_CS	      4
+#define PAIR_EXP6_CS	      10
 #define PAIR_YUKAWA_CS        3
 extern int Type_uwwPot;
 extern double Cut_ww[NWALL_MAX_TYPE][NWALL_MAX_TYPE];

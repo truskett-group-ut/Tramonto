@@ -389,7 +389,7 @@ void make_length_params_dimensionless()
      for (jwall_type=0;jwall_type<Nwall_type;jwall_type++) Cut_ww[iwall_type][jwall_type]/=Length_ref;
   }
 
-  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || 
+  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || Type_uwwPot == PAIR_EXP6_CS ||
       Type_uwwPot==PAIR_LJandYUKAWA_CS || Type_uwwPot==PAIR_r12andYUKAWA_CS
       || Type_uwwPot==PAIR_r18andYUKAWA_CS){
 
@@ -404,7 +404,7 @@ void make_length_params_dimensionless()
         Bond_ff[icomp][jcomp]/=Length_ref;
         Cut_ff[icomp][jcomp]/=Length_ref;
 
-        if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS ||
+        if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || Type_pairPot == PAIR_EXP6_CS ||
             Type_pairPot==PAIR_LJandYUKAWA_CS || Type_pairPot==PAIR_r12andYUKAWA_CS ||
             Type_pairPot==PAIR_r18andYUKAWA_CS || Type_pairPot==PAIR_rNandYUKAWA_CS) YukawaK_ff[icomp][jcomp]*=Length_ref;
      }
@@ -444,7 +444,7 @@ void make_energy_params_dimensionless()
      for (jcomp=0;jcomp<Ncomp;jcomp++){
          Eps_ff[icomp][jcomp]/=Temp;
 
-         if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS ||
+         if (Type_pairPot == PAIR_YUKAWA_CS || Type_pairPot == PAIR_EXP_CS || Type_pairPot == PAIR_EXP6_CS ||
              Type_pairPot==PAIR_LJandYUKAWA_CS || Type_pairPot==PAIR_r12andYUKAWA_CS ||
              Type_pairPot==PAIR_r18andYUKAWA_CS || Type_pairPot==PAIR_rNandYUKAWA_CS) EpsYukawa_ff[icomp][jcomp]/=Temp;
      }
@@ -454,7 +454,7 @@ void make_energy_params_dimensionless()
      for (jwall_type=0;iwall_type<Nwall_type;iwall_type++) Eps_ww[iwall_type][jwall_type]/=Temp;
   }
    
-  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || 
+  if (Type_uwwPot==PAIR_YUKAWA_CS || Type_uwwPot == PAIR_EXP_CS || Type_uwwPot == PAIR_EXP6_CS ||
       Type_uwwPot==PAIR_LJandYUKAWA_CS || Type_uwwPot==PAIR_r12andYUKAWA_CS
       || Type_uwwPot==PAIR_r18andYUKAWA_CS){
 

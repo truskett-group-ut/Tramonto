@@ -36,6 +36,7 @@ extern double EpsYukawa_ff[NCOMP_MAX][NCOMP_MAX];
 #define PAIR_r12andYUKAWA_CS  7
 #define PAIR_LJandYUKAWA_CS   6
 #define PAIR_EXP_CS	      4
+#define PAIR_EXP6_CS	      10
 #define PAIR_YUKAWA_CS        3
 extern int Type_pairPot;
 extern double Cut_ff[NCOMP_MAX][NCOMP_MAX];
