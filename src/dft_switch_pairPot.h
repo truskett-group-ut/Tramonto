@@ -46,7 +46,7 @@ void uLJ12_6_InnerCore(int i,int j,double *rCore_left,double *rCore_right,double
 void pairPot_InnerCore_switch(int icomp,int jcomp,int typePairPot,double *rCore_left,double *rCore_right,double *epsCore);
 double uSW_DERIV1D(double r,double x,double sigma,double eps,double rcut);
 double uEXP_DERIV1D(double r,double x,double sigma,double eps,double rcut,double yukawaK);
-double uexp6_DERIV1D(double r,double x,double sigma,double eps,double rcut,double yukawaK);
+double uexp6_DERIV1D(double r,double x,double sigma,double eps,double rcut,double K_Y, double eps_Y);
 double urNandYUKAWA_DERIV1D(double r,double x,double sigma,double eps,double rcut,double yukawaK,double AYukawa,double npow);
 double ur18andYUKAWA_DERIV1D(double r,double x,double sigma,double eps,double rcut,double yukawaK,double AYukawa);
 double ur12andYUKAWA_DERIV1D(double r,double x,double sigma,double eps,double rcut,double yukawaK,double AYukawa);
@@ -58,7 +58,7 @@ double uLJ12_6_DERIV1D(double r,double x,double sigma,double eps,double rcut);
 double pairPot_deriv_switch(double r,double x,double param1,double param2,double param3,double param4,double param5,double param6,int typePairPot);
 void uSW_setparams(int context,int i,int j,double *param1,double *param2,double *param3);
 void uEXP_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4);
-void uexp6_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4);
+void uexp6_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4, double *param5);
 void urNandYUKAWA_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4,double *param5,double *param6);
 void ur18andYUKAWA_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4,double *param5);
 void ur12andYUKAWA_CS_setparams(int context,int i,int j,double *param1,double *param2,double *param3,double *param4,double *param5);
@@ -90,7 +90,7 @@ double uSW(double r,double sigma,double eps,double rcut);
 #define PAIR_SW		      5
 double uEXP_CS(double r,double sigma,double eps,double rcut,double yukawaK);
 #define PAIR_EXP_CS	      4
-double uexp6_CS(double r,double sigma,double eps,double rcut,double yukawaK);
+double uexp6_CS(double r,double sigma,double eps,double rcut,double K_Y, double eps_Y);
 #define PAIR_EXP6_CS	      10
 double urNandYUKAWA_CS(double r,double sigma,double eps,double rcut,double yukawaK,double AYukawa,double npow);
 #define PAIR_rNandYUKAWA_CS   9

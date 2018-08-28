@@ -74,7 +74,7 @@ double pairPot_switch(double r,double param1, double param2, double param3,doubl
         u = uEXP_CS(r,param1,param2,param3,param4);
         break;
       case PAIR_EXP6_CS:
-        u = uexp6_CS(r,param1,param2,param3,param4);
+        u = uexp6_CS(r,param1,param2,param3,param4,param5);
         break;
       case PAIR_SW:
         u = uSW(r,param1,param2,param3);
@@ -122,7 +122,7 @@ void pairPotparams_switch(int typePairPot,int context, int i, int j,
         uEXP_CS_setparams(context,i,j,param1,param2,param3,param4);
         break;
       case PAIR_EXP6_CS:
-        uexp6_CS_setparams(context,i,j,param1,param2,param3,param4);
+        uexp6_CS_setparams(context,i,j,param1,param2,param3,param4,param5);
         break;
       case PAIR_SW:
         uSW_setparams(context,i,j,param1,param2,param3);
@@ -171,7 +171,7 @@ double pairPot_deriv_switch(double r, double x, double param1, double param2, do
         uderiv = uEXP_DERIV1D(r,x,param1,param2,param3,param4);
         break;
       case PAIR_EXP6_CS:
-        uderiv = uexp6_DERIV1D(r,x,param1,param2,param3,param4);
+        uderiv = uexp6_DERIV1D(r,x,param1,param2,param3,param4,param5);
         break;
       case PAIR_SW:
         uderiv = uSW_DERIV1D(r,x,param1,param2,param3);
