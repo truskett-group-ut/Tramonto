@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
+project(Tramonto)
 
 MESSAGE("Starting configure")
 
@@ -77,7 +78,6 @@ IF(NOT CMAKE_AR)
   SET(CMAKE_AR ${CMAKE_AR})
 ENDIF()
 
-project(Tramonto)
 SET(CPACK_PACKAGE_VERSION "5.0")
 #enable_language(Fortran)
 #Currently no example exes are built for Tramonto
@@ -119,7 +119,17 @@ ENDIF()
 #	message(FATAL_ERROR "Could not find lapack")
 #endif(NOT LAPACK_FOUND)
 
-	
+## Set the RPATH of the installed binary correctly
+# https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/RPATH-handling
+SET(CMAKE_SKIP_BUILD_RPATH FALSE)
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+LIST(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/lib" isSystemDir)
+IF("${isSystemDir}" STREQUAL "-1")
+    SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+ENDIF("${isSystemDir}" STREQUAL "-1")
+
 ADD_SUBDIRECTORY(src)
 
 IF(BUILD_TESTING)
