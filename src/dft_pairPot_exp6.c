@@ -138,7 +138,7 @@ double uexp6_ATT_noCS(double r,int i, int j)
        if (Type_CoreATT_CONST==CORECONST_ZERO) uatt = 0.0;
        else                                    uatt = uexp6(sigma,sigma,eps,alpha,C);
   }
-  else   uatt = uexp6(sigma,sigma,eps,alpha,C);
+  else   uatt = uexp6(r,sigma,eps,alpha,C);
 
   return uatt;
 }
